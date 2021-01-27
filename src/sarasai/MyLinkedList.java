@@ -56,6 +56,19 @@ public class MyLinkedList {
     }
 
     public void set(int index, Object o) {
+        int i = 0;
+//        Node elem = null;
+        Node n = head;
+        Node d = head;
+        while (n != null) {
+            if(i != index) {
+                i++;
+                d = n.next;
+            } else {
+                d.el = o;
+            }
+            n = n.next;
+        }
     }
 
     public void remove(int index) {

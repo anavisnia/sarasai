@@ -24,6 +24,9 @@ public class Main {
         ml.printAll();
         System.out.println("size: " + ml.size());
         System.out.println("get indexed element: " + ml.get(1));
+        ml.set(0,"LG");
+        ml.printAll();
+        System.out.println("size: " + ml.size());
 //        ml.remove(0);
 //        ml.printAll();
 //        ml.set(0, "LG");

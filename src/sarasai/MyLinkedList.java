@@ -41,23 +41,38 @@ public class MyLinkedList {
         return i;
      */
 
+//    public Object get(int index) {
+//        int i = 0;
+//        String elem = "";
+//        Node n = head;
+//        while (n != null) {
+//            n = n.next;
+//            if(i != index) {
+//                i++;
+//                elem = (String) n.el;
+//            }
+//        }
+//        return elem;
+//    }
     public Object get(int index) {
+        if(index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
         int i = 0;
-        String elem = "";
         Node n = head;
-        while (n != null) {
+        while (i < index && n != null) {
+            i++;
             n = n.next;
-            if(i != index) {
+            if(i == index && n != null) {
                 i++;
-                elem = (String) n.el;
+                return n.el;
             }
         }
-        return elem;
+        return n.el;
     }
 
     public void set(int index, Object o) {
         int i = 0;
-//        Node elem = null;
         Node n = head;
         Node d = head;
         while (n != null) {
@@ -69,9 +84,55 @@ public class MyLinkedList {
             }
             n = n.next;
         }
+//        Node n = head;
+//        int count = 0;
+//        while (n.next != null) {
+//            if (count == index) {
+//                n.el = o;
+//            }
+//            count++;
+//            n = n.next;
+//        }
     }
+    /*
+    public void remove(int index) {
+        Object[] editedList = new Object[this.list.length - 1];
+        for(int i = 0, j = 0;  i < list.length; i++ ) {
+            if( i != index) {
+                editedList[j++] = list[i];
+            }
+        }
+        this.list = editedList;
+    }
+     */
 
     public void remove(int index) {
+//        Node n = head;
+//        int i = 0;
+//        while (n.next != null) {
+//            if (i != index) {
+//                i++;
+//            } else {
+//                n.el = n.next.el;
+//            }
+//            n = n.next;
+//        }
+        if(index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+        int i = 0;
+        Node n = head;
+        while (i < index && n != null) {
+            i++;
+            n = n.next;
+            if(i == index - 1 && n != null) {
+                if(n.next == null) {
+                    throw  new IndexOutOfBoundsException();
+                }
+                n.next = n.next.next;
+            }
+        }
+
     }
 
     public void insert(int index, Object o) {
